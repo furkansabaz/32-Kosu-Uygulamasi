@@ -56,15 +56,39 @@
 		3D8B692722B384F5008FFB33 /* Kosu */ = {
 			isa = PBXGroup;
 			children = (
+				3DFEB66D22B416C800F0401B /* Model */,
+				3DFEB66C22B416C400F0401B /* View */,
+				3DFEB66B22B416BD00F0401B /* Controller */,
 				3D8B692822B384F5008FFB33 /* AppDelegate.swift */,
-				3D8B692A22B384F5008FFB33 /* KosuyaBaslaViewController.swift */,
-				3D8B692C22B384F5008FFB33 /* KosuGecmisiViewController.swift */,
 				3D8B692E22B384F5008FFB33 /* Main.storyboard */,
 				3D8B693122B384F5008FFB33 /* Assets.xcassets */,
 				3D8B693322B384F5008FFB33 /* LaunchScreen.storyboard */,
 				3D8B693622B384F5008FFB33 /* Info.plist */,
 			);
 			path = Kosu;
+			sourceTree = "<group>";
+		};
+		3DFEB66B22B416BD00F0401B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D8B692A22B384F5008FFB33 /* KosuyaBaslaViewController.swift */,
+				3D8B692C22B384F5008FFB33 /* KosuGecmisiViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3DFEB66C22B416C400F0401B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3DFEB66D22B416C800F0401B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
