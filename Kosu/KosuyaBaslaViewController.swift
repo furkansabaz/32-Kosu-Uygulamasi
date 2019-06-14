@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  KosuyaBaslaViewController.swift
 //  Kosu
 //
 //  Created by Furkan Sabaz on 14.06.2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class KosuyaBaslaViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
