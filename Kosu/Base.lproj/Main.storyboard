@@ -46,6 +46,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFZ-1x-otN">
                                 <rect key="frame" x="346" y="600" width="58" height="58"/>
                                 <state key="normal" image="yonButonu"/>
+                                <connections>
+                                    <action selector="btnKonumMerkezPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WAk-JI-Blb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -70,6 +73,9 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Koş" image="kosRenkli" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="mapView" destination="cJP-pe-9gk" id="D1V-si-PMV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>

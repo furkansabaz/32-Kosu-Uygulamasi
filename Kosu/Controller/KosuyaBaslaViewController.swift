@@ -7,14 +7,42 @@
 //
 
 import UIKit
+import MapKit
 
-class KosuyaBaslaViewController: UIViewController {
+class KosuyaBaslaViewController: KonumViewController {
 
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        izinKontrol()
+        mapView.delegate = self
     }
 
-
+    override func viewWillAppear(_ animated: Bool) {
+        manager?.delegate = self
+        manager?.startUpdatingLocation()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        manager?.stopUpdatingLocation()
+    }
+    @IBAction func btnKonumMerkezPressed(_ sender: Any) {
+    }
+    
 }
 
+
+extension KosuyaBaslaViewController : CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        if status == .authorizedWhenInUse {
+            izinKontrol()
+            mapView.showsUserLocation = true
+            mapView.userTrackingMode = .follow
+        }
+    }
+    
+    
+}

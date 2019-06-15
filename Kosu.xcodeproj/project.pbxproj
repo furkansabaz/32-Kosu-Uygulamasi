@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D8539DA22B59E7F004E78B8 /* KonumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8539D922B59E7F004E78B8 /* KonumViewController.swift */; };
 		3D8B692922B384F5008FFB33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B692822B384F5008FFB33 /* AppDelegate.swift */; };
 		3D8B692B22B384F5008FFB33 /* KosuyaBaslaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B692A22B384F5008FFB33 /* KosuyaBaslaViewController.swift */; };
 		3D8B692D22B384F5008FFB33 /* KosuGecmisiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B692C22B384F5008FFB33 /* KosuGecmisiViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D8539D922B59E7F004E78B8 /* KonumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonumViewController.swift; sourceTree = "<group>"; };
 		3D8B692522B384F5008FFB33 /* Kosu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kosu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8B692822B384F5008FFB33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D8B692A22B384F5008FFB33 /* KosuyaBaslaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KosuyaBaslaViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				3D8B692A22B384F5008FFB33 /* KosuyaBaslaViewController.swift */,
 				3D8B692C22B384F5008FFB33 /* KosuGecmisiViewController.swift */,
+				3D8539D922B59E7F004E78B8 /* KonumViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D8B692D22B384F5008FFB33 /* KosuGecmisiViewController.swift in Sources */,
+				3D8539DA22B59E7F004E78B8 /* KonumViewController.swift in Sources */,
 				3D8B692922B384F5008FFB33 /* AppDelegate.swift in Sources */,
 				3D8B692B22B384F5008FFB33 /* KosuyaBaslaViewController.swift in Sources */,
 			);
