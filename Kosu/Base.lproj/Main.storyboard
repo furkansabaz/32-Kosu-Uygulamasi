@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
         </scene>
-        <!--View Controller-->
+        <!--Kosuyorum View Controller-->
         <scene sceneID="Pxr-kF-7Mi">
             <objects>
-                <viewController id="4EM-nh-DrQ" sceneMemberID="viewController">
+                <viewController id="4EM-nh-DrQ" customClass="KosuyorumViewController" customModule="Kosu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="796-5O-DSg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -209,6 +209,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="drJ-rA-f62"/>
                     </view>
+                    <connections>
+                        <outlet property="btnKosuBitir" destination="1xT-tO-vC8" id="pYz-Zb-oJV"/>
+                        <outlet property="imgKosuOutline" destination="hhb-4F-C1d" id="oQ2-gR-qc9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DV4-4C-8qL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
