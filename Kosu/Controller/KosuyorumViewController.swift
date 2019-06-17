@@ -7,11 +7,22 @@
 //
 
 import UIKit
+import MapKit
 
-class KosuyorumViewController: UIViewController {
+class KosuyorumViewController: KonumViewController {
 
     @IBOutlet weak var imgKosuOutline: UIImageView!
     @IBOutlet weak var btnKosuBitir: UIButton!
+    
+    @IBOutlet weak var lblSure: UILabel!
+    @IBOutlet weak var lblTempo: UILabel!
+    @IBOutlet weak var lblUzaklik: UILabel!
+    @IBOutlet weak var btnDurdur: UIButton!
+    
+    var kosuMesafesi : Double = 0.0
+    var ilkKonum : CLLocation!
+    var sonKonum : CLLocation!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +69,51 @@ class KosuyorumViewController: UIViewController {
         
     }
     
+    @IBAction func btnDurdurPressed(_ sender: Any) {
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        manager?.delegate = self
+        manager?.distanceFilter = 10
+        kosmaBaslat()
+    }
+    
+    func kosmaBaslat() {
+        manager?.startUpdatingLocation()
+    }
+    
+    
+    func kosmaBitir() {
+        manager?.stopUpdatingLocation()
+    }
+    
+
+}
 
 
+extension KosuyorumViewController : CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            izinKontrol()
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        //mesafe burada hesaplanacaktır
+        
+        
+        if ilkKonum == nil {
+            ilkKonum = locations.first
+        } else if let konum = locations.last {
+            kosuMesafesi  += sonKonum.distance(from: konum)
+            let stringMesafe = String(format: "%.3f", kosuMesafesi/1000)
+            lblUzaklik.text = "\(stringMesafe)"
+        }
+        sonKonum = locations.last
+        
+        
+        
+    }
+    
 }

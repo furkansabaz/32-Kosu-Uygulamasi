@@ -169,6 +169,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGr-jm-DKm">
                                 <rect key="frame" x="261" y="760" width="75" height="75"/>
                                 <state key="normal" image="durdurButonu"/>
+                                <connections>
+                                    <action selector="btnDurdurPressed:" destination="4EM-nh-DrQ" eventType="touchUpInside" id="iyg-HI-YkH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xT-tO-vC8">
                                 <rect key="frame" x="49" y="762" width="71" height="71"/>
@@ -210,8 +213,12 @@
                         <viewLayoutGuide key="safeArea" id="drJ-rA-f62"/>
                     </view>
                     <connections>
+                        <outlet property="btnDurdur" destination="lGr-jm-DKm" id="fNN-Qc-o5a"/>
                         <outlet property="btnKosuBitir" destination="1xT-tO-vC8" id="pYz-Zb-oJV"/>
                         <outlet property="imgKosuOutline" destination="hhb-4F-C1d" id="oQ2-gR-qc9"/>
+                        <outlet property="lblSure" destination="Tsm-Jd-tiP" id="zfP-9m-76z"/>
+                        <outlet property="lblTempo" destination="ckL-ux-UQO" id="p6X-E6-kU9"/>
+                        <outlet property="lblUzaklik" destination="tK5-Gb-l28" id="Z1O-zm-J4o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DV4-4C-8qL" userLabel="First Responder" sceneMemberID="firstResponder"/>
