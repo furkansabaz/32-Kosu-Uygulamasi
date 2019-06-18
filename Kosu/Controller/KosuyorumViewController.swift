@@ -26,7 +26,7 @@ class KosuyorumViewController: KonumViewController {
     var sayac : Int = 0
     var timer = Timer()
     
-    
+    var tempo = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -100,6 +100,12 @@ class KosuyorumViewController: KonumViewController {
         sayac = sayac + 1
         lblSure.text = sayac.saniyeSureCevir()
     }
+    
+    func tempoHesapla(sure saniye : Int , km : Double) -> String {
+        
+        tempo = Int(Double(saniye) / km)
+        return tempo.saniyeSureCevir()
+    }
 
 }
 
@@ -122,6 +128,10 @@ extension KosuyorumViewController : CLLocationManagerDelegate {
             kosuMesafesi  += sonKonum.distance(from: konum)
             let stringMesafe = String(format: "%.3f", kosuMesafesi/1000)
             lblUzaklik.text = "\(stringMesafe)"
+            if sayac > 0 &&  kosuMesafesi > 0 {
+                lblTempo.text = tempoHesapla(sure: sayac, km: kosuMesafesi/1000)
+            }
+            
         }
         sonKonum = locations.last
         
