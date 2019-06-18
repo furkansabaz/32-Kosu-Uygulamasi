@@ -55,6 +55,7 @@ class KosuyorumViewController: KonumViewController {
                 }
                 else if sliderview.center.x >= (imgKosuOutline.center.x + maxFark) {
                     sliderview.center.x = imgKosuOutline.center.x + maxFark
+                    kosmaBitir()
                     dismiss(animated: true, completion: nil)
                 } else {
                     sliderview.center.x = imgKosuOutline.center.x - minFark
@@ -73,6 +74,12 @@ class KosuyorumViewController: KonumViewController {
     }
     
     @IBAction func btnDurdurPressed(_ sender: Any) {
+        
+        if timer.isValid {
+            kosmaDurdur()
+        } else {
+            kosmaBaslat()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +91,7 @@ class KosuyorumViewController: KonumViewController {
     func kosmaBaslat() {
         manager?.startUpdatingLocation()
         zamanlayiciBaslat()
+        btnDurdur.setImage(#imageLiteral(resourceName: "durdurButonu"), for: .normal)
     }
     
     
@@ -105,6 +113,15 @@ class KosuyorumViewController: KonumViewController {
         
         tempo = Int(Double(saniye) / km)
         return tempo.saniyeSureCevir()
+    }
+    
+    func kosmaDurdur() {
+        ilkKonum = nil
+        sonKonum = nil
+        timer.invalidate()
+        manager?.stopUpdatingLocation()
+        btnDurdur.setImage(#imageLiteral(resourceName: "devamButonu"), for: .normal)
+        
     }
 
 }
