@@ -23,6 +23,9 @@ class KosuyorumViewController: KonumViewController {
     var ilkKonum : CLLocation!
     var sonKonum : CLLocation!
     
+    var sayac : Int = 0
+    var timer = Timer()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +83,7 @@ class KosuyorumViewController: KonumViewController {
     
     func kosmaBaslat() {
         manager?.startUpdatingLocation()
+        zamanlayiciBaslat()
     }
     
     
@@ -87,6 +91,15 @@ class KosuyorumViewController: KonumViewController {
         manager?.stopUpdatingLocation()
     }
     
+    func zamanlayiciBaslat() {
+        
+        lblSure.text = sayac.saniyeSureCevir()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(sayaciGuncelle), userInfo: nil, repeats: true)
+    }
+    @objc func sayaciGuncelle() {
+        sayac = sayac + 1
+        lblSure.text = sayac.saniyeSureCevir()
+    }
 
 }
 

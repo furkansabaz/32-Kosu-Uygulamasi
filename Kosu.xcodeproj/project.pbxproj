@@ -15,6 +15,7 @@
 		3D8B693022B384F5008FFB33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D8B692E22B384F5008FFB33 /* Main.storyboard */; };
 		3D8B693222B384F5008FFB33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D8B693122B384F5008FFB33 /* Assets.xcassets */; };
 		3D8B693522B384F5008FFB33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D8B693322B384F5008FFB33 /* LaunchScreen.storyboard */; };
+		3DB3309622B8BD6A00CB723F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3309522B8BD6A00CB723F /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3D8B693122B384F5008FFB33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D8B693422B384F5008FFB33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D8B693622B384F5008FFB33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DB3309522B8BD6A00CB723F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		3D8B692722B384F5008FFB33 /* Kosu */ = {
 			isa = PBXGroup;
 			children = (
+				3DB3309422B8BD5C00CB723F /* Extensions */,
 				3DFEB66D22B416C800F0401B /* Model */,
 				3DFEB66C22B416C400F0401B /* View */,
 				3DFEB66B22B416BD00F0401B /* Controller */,
@@ -70,6 +73,14 @@
 				3D8B693622B384F5008FFB33 /* Info.plist */,
 			);
 			path = Kosu;
+			sourceTree = "<group>";
+		};
+		3DB3309422B8BD5C00CB723F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3DB3309522B8BD6A00CB723F /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3DFEB66B22B416BD00F0401B /* Controller */ = {
@@ -169,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D8B692D22B384F5008FFB33 /* KosuGecmisiViewController.swift in Sources */,
+				3DB3309622B8BD6A00CB723F /* Extensions.swift in Sources */,
 				3D8539DA22B59E7F004E78B8 /* KonumViewController.swift in Sources */,
 				3D8B692922B384F5008FFB33 /* AppDelegate.swift in Sources */,
 				3D0B6A8622B7FE3E003B87D8 /* KosuyorumViewController.swift in Sources */,
