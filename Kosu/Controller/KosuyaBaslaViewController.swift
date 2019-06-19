@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-
+import RealmSwift
 class KosuyaBaslaViewController: KonumViewController {
 
     @IBOutlet weak var lblMesafe: UILabel!
@@ -38,11 +38,48 @@ class KosuyaBaslaViewController: KonumViewController {
         manager?.stopUpdatingLocation()
     }
     @IBAction func btnKonumMerkezPressed(_ sender: Any) {
+        merkezKonumMapView()
+    }
+    
+    func merkezKonumMapView() {
+        
+        mapView.userTrackingMode = .follow
+        
+        let bolgeKoordinat = MKCoordinateRegion(center: mapView.userLocation.coordinate, latitudinalMeters: 600, longitudinalMeters: 600)
+        mapView.setRegion(bolgeKoordinat, animated: true)
+        
+    }
+    
+    
+    func kosuBolgeKoordinatlari(konumlar : List<Konum>) -> MKCoordinateRegion {
+        
+        guard let baslangicKonum = konumlar.first else { return MKCoordinateRegion() }
+        
+        var minLat = baslangicKonum.latitude
+        var maxLat = minLat
+        
+        var minLong = baslangicKonum.longitude
+        var maxLong = minLong
+        
+        
+        for konum in konumlar {
+            minLat = min(minLat, konum.latitude)
+            maxLat = max(maxLat, konum.latitude)
+            
+            minLong = min(minLong, konum.longitude)
+            maxLong = max(maxLong, konum.longitude)
+            
+        }
+        
+        
+        return MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: (minLat + maxLat)/2, longitude: (maxLong + minLong)/2), span: MKCoordinateSpan(latitudeDelta: (maxLat - minLat)*1.5, longitudeDelta: (maxLong-minLong)*1.5))
+        
     }
     @IBAction func btnSonKosuKapat(_ sender: Any) {
         stackViewSonKosu.isHidden = true
         viewSonKosu.isHidden = true
         btnSonKosuKapat.isHidden = true
+        merkezKonumMapView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,6 +97,11 @@ class KosuyaBaslaViewController: KonumViewController {
         for konum in sonKosu.konumlar {
             koordinatlar.append(CLLocationCoordinate2D(latitude: konum.latitude, longitude: konum.longitude))
         }
+        
+        
+        
+        mapView.userTrackingMode = .none
+        mapView.setRegion(kosuBolgeKoordinatlari(konumlar: sonKosu.konumlar), animated: true)
         return MKPolyline(coordinates: koordinatlar, count: koordinatlar.count)
     }
     
@@ -78,6 +120,7 @@ class KosuyaBaslaViewController: KonumViewController {
             stackViewSonKosu.isHidden = true
             viewSonKosu.isHidden = true
             btnSonKosuKapat.isHidden = true
+            merkezKonumMapView()
         }
         
     }
@@ -101,7 +144,6 @@ extension KosuyaBaslaViewController : CLLocationManagerDelegate {
         if status == .authorizedWhenInUse {
             izinKontrol()
             mapView.showsUserLocation = true
-            mapView.userTrackingMode = .follow
         }
     }
     
