@@ -30,3 +30,17 @@ extension Int {
     }
     
 }
+extension NSDate {
+    
+    func tarihGetir() -> String {
+        
+        let takvim = Calendar.current
+        
+        let gun = takvim.component(.day, from: self as Date)
+        let ay = takvim.component(.month, from: self as Date)
+        let yil = takvim.component(.year, from: self as Date)
+        return "\(gun)/\(ay)/\(yil)"
+        
+    }
+    
+}

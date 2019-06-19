@@ -247,7 +247,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KosuKayitCell" rowHeight="86" id="6aa-yq-UVf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KosuKayitCell" rowHeight="86" id="6aa-yq-UVf" customClass="KosuKayitCell" customModule="Kosu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6aa-yq-UVf" id="HCP-WM-qrf">
@@ -298,13 +298,23 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0X-pO-IqL">
+                                                    <rect key="frame" x="0.0" y="82" width="414" height="4"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="4" id="3e9-j9-Pgs"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="lwE-OC-04A" firstAttribute="leading" secondItem="HCP-WM-qrf" secondAttribute="leading" id="00R-x6-bzg"/>
                                                 <constraint firstItem="2Eb-66-Asi" firstAttribute="leading" secondItem="HCP-WM-qrf" secondAttribute="leading" constant="8" id="59g-3s-CM7"/>
+                                                <constraint firstItem="E0X-pO-IqL" firstAttribute="leading" secondItem="HCP-WM-qrf" secondAttribute="leading" id="B1U-0u-BSB"/>
+                                                <constraint firstAttribute="bottom" secondItem="E0X-pO-IqL" secondAttribute="bottom" id="BSV-tq-mAk"/>
                                                 <constraint firstItem="3Sj-1c-ocd" firstAttribute="centerX" secondItem="HCP-WM-qrf" secondAttribute="centerX" id="Iio-TU-xE8"/>
                                                 <constraint firstItem="lwE-OC-04A" firstAttribute="top" secondItem="HCP-WM-qrf" secondAttribute="top" id="OaR-pM-6sh"/>
+                                                <constraint firstAttribute="trailing" secondItem="E0X-pO-IqL" secondAttribute="trailing" id="RXL-wg-LQz"/>
                                                 <constraint firstAttribute="trailing" secondItem="YAb-go-zva" secondAttribute="trailing" constant="8" id="Ynv-zm-KrE"/>
                                                 <constraint firstItem="3Sj-1c-ocd" firstAttribute="centerY" secondItem="HCP-WM-qrf" secondAttribute="centerY" id="YuG-k8-gDX"/>
                                                 <constraint firstItem="YAb-go-zva" firstAttribute="centerY" secondItem="HCP-WM-qrf" secondAttribute="centerY" id="cow-9L-qeV"/>
@@ -314,6 +324,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="lblMesafe" destination="zwU-jb-Z6R" id="RgV-SI-L9N"/>
+                                            <outlet property="lblSure" destination="mW6-Ah-bSd" id="kVH-sO-msv"/>
+                                            <outlet property="lblTarih" destination="YAb-go-zva" id="Lgu-UK-ASS"/>
+                                            <outlet property="lblTempo" destination="bNl-CV-vfP" id="5qK-Cf-uYC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -334,6 +350,9 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Kosu Kayitlari" image="tabbar" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="tableView" destination="cUG-ZO-IvM" id="95o-q6-JGw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
