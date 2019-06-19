@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-
+import RealmSwift
 class KosuyorumViewController: KonumViewController {
 
     @IBOutlet weak var imgKosuOutline: UIImageView!
@@ -22,11 +22,10 @@ class KosuyorumViewController: KonumViewController {
     var kosuMesafesi : Double = 0.0
     var ilkKonum : CLLocation!
     var sonKonum : CLLocation!
-    
     var sayac : Int = 0
     var timer = Timer()
-    
     var tempo = 0
+    var konumlar = List<Konum>()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,7 +96,7 @@ class KosuyorumViewController: KonumViewController {
     
     func kosmaBitir() {
         manager?.stopUpdatingLocation()
-        Kosu.kosuEkleRealm(sure: sayac, mesafe: kosuMesafesi, tempo: tempo)
+        Kosu.kosuEkleRealm(sure: sayac, mesafe: kosuMesafesi, tempo: tempo,konumlar: konumlar)
     }
     
     func zamanlayiciBaslat() {
@@ -144,6 +143,10 @@ extension KosuyorumViewController : CLLocationManagerDelegate {
             ilkKonum = locations.first
         } else if let konum = locations.last {
             kosuMesafesi  += sonKonum.distance(from: konum)
+            
+            let yeniKonum = Konum(latitude: Double(sonKonum.coordinate.latitude), longitude: Double(sonKonum.coordinate.longitude))
+            konumlar.insert(yeniKonum, at: 0)
+            
             let stringMesafe = String(format: "%.3f", kosuMesafesi/1000)
             lblUzaklik.text = "\(stringMesafe)"
             if sayac > 0 &&  kosuMesafesi > 0 {

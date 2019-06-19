@@ -16,7 +16,7 @@ class Kosu : Object {
     @objc dynamic var tempo = 0
     @objc dynamic var mesafe = 0.0
     @objc dynamic var sure  = 0
-    
+    dynamic var konumlar = List<Konum>()
     
     override static func primaryKey() -> String? {
         return "id"
@@ -26,7 +26,7 @@ class Kosu : Object {
         return ["tarih","sure","tempo"]
     }
     
-    convenience init(tempo : Int , sure : Int, mesafe : Double) {
+    convenience init(tempo : Int , sure : Int, mesafe : Double,konumlar : List<Konum>) {
         
         self.init()
         self.id = UUID().uuidString.lowercased()
@@ -34,17 +34,17 @@ class Kosu : Object {
         self.mesafe = mesafe
         self.tempo = tempo
         self.sure = sure
-        
+        self.konumlar = konumlar
     }
     
     
-    static func kosuEkleRealm(sure: Int, mesafe : Double, tempo : Int) {
+    static func kosuEkleRealm(sure: Int, mesafe : Double, tempo : Int, konumlar : List<Konum>) {
         
         REALM_KUYRUK.sync {
             
         
         
-        let kosu = Kosu(tempo: tempo, sure: sure, mesafe: mesafe)
+        let kosu = Kosu(tempo: tempo, sure: sure, mesafe: mesafe,konumlar: konumlar)
         do {
             let realm = try Realm()
             try realm.write {

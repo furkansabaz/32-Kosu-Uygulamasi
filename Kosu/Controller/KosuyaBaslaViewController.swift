@@ -26,6 +26,8 @@ class KosuyaBaslaViewController: KonumViewController {
         izinKontrol()
         mapView.delegate = self
         
+        print(Kosu.kosularinTumunuGetir())
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
