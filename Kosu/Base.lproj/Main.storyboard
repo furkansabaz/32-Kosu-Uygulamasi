@@ -85,6 +85,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89N-c0-QEt">
                                         <rect key="frame" x="362" y="39" width="32" height="32"/>
                                         <state key="normal" image="kapat"/>
+                                        <connections>
+                                            <action selector="btnSonKosuKapat:" destination="9pv-A4-QxB" eventType="touchUpInside" id="ori-wj-NfK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -124,7 +127,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Koş" image="kosRenkli" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="btnSonKosuKapat" destination="89N-c0-QEt" id="YGx-YV-NGi"/>
+                        <outlet property="lblMesafe" destination="e4O-O1-gpY" id="7oe-KL-nM1"/>
+                        <outlet property="lblSure" destination="92z-zm-iIG" id="ujP-OW-JUT"/>
+                        <outlet property="lblTempo" destination="zIe-OE-j98" id="Drg-6K-bO8"/>
                         <outlet property="mapView" destination="cJP-pe-9gk" id="D1V-si-PMV"/>
+                        <outlet property="stackViewSonKosu" destination="lHr-mO-m8B" id="IbL-wj-JdF"/>
+                        <outlet property="viewSonKosu" destination="MZA-KK-EjR" id="jgc-dE-Fbz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
