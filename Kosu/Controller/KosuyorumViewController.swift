@@ -97,6 +97,7 @@ class KosuyorumViewController: KonumViewController {
     
     func kosmaBitir() {
         manager?.stopUpdatingLocation()
+        Kosu.kosuEkleRealm(sure: sayac, mesafe: kosuMesafesi, tempo: tempo)
     }
     
     func zamanlayiciBaslat() {

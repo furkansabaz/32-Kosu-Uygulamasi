@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D0B6A8622B7FE3E003B87D8 /* KosuyorumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B6A8522B7FE3E003B87D8 /* KosuyorumViewController.swift */; };
 		3D5A797822B94E4700783B4A /* Kosu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A797722B94E4700783B4A /* Kosu.swift */; };
+		3D5A797C22BA19EB00783B4A /* Sabitler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A797B22BA19EB00783B4A /* Sabitler.swift */; };
 		3D8539DA22B59E7F004E78B8 /* KonumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8539D922B59E7F004E78B8 /* KonumViewController.swift */; };
 		3D8B692922B384F5008FFB33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B692822B384F5008FFB33 /* AppDelegate.swift */; };
 		3D8B692B22B384F5008FFB33 /* KosuyaBaslaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B692A22B384F5008FFB33 /* KosuyaBaslaViewController.swift */; };
@@ -24,6 +25,7 @@
 		09B1A2EB3C0AAD1BD28A1955 /* Pods_Kosu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kosu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D0B6A8522B7FE3E003B87D8 /* KosuyorumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KosuyorumViewController.swift; sourceTree = "<group>"; };
 		3D5A797722B94E4700783B4A /* Kosu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kosu.swift; sourceTree = "<group>"; };
+		3D5A797B22BA19EB00783B4A /* Sabitler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sabitler.swift; sourceTree = "<group>"; };
 		3D8539D922B59E7F004E78B8 /* KonumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonumViewController.swift; sourceTree = "<group>"; };
 		3D8B692522B384F5008FFB33 /* Kosu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kosu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8B692822B384F5008FFB33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				3D5A797722B94E4700783B4A /* Kosu.swift */,
+				3D5A797B22BA19EB00783B4A /* Sabitler.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				3D5A797822B94E4700783B4A /* Kosu.swift in Sources */,
 				3D0B6A8622B7FE3E003B87D8 /* KosuyorumViewController.swift in Sources */,
 				3D8B692B22B384F5008FFB33 /* KosuyaBaslaViewController.swift in Sources */,
+				3D5A797C22BA19EB00783B4A /* Sabitler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

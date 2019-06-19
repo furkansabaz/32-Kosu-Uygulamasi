@@ -37,4 +37,46 @@ class Kosu : Object {
         
     }
     
+    
+    static func kosuEkleRealm(sure: Int, mesafe : Double, tempo : Int) {
+        
+        REALM_KUYRUK.sync {
+            
+        
+        
+        let kosu = Kosu(tempo: tempo, sure: sure, mesafe: mesafe)
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(kosu)
+                try realm.commitWrite()
+                print("Veri Başarıyla Eklendi")
+            }
+        } catch {
+            print("Kosu Verileri Eklenirken Hata Meydana Geldi : \(error.localizedDescription)")
+        }
+            
+    }
+        
+    }
+    
+    
+    
+    static func kosularinTumunuGetir() -> Results<Kosu>? {
+        
+        do {
+            
+            let realm = try Realm()
+            var kosular = realm.objects(Kosu.self)
+            kosular = kosular.sorted(byKeyPath: "tarih", ascending: false)
+            return kosular
+            
+        } catch {
+            print("Koşuları Getirirken Hata Meydana Geldi : \(error.localizedDescription)")
+            return nil
+        }
+        
+        
+    }
+    
 }
