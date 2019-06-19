@@ -18,6 +18,10 @@ class KosuGecmisiViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 }
 
 

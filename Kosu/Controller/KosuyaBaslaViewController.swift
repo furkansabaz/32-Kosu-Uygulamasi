@@ -33,7 +33,6 @@ class KosuyaBaslaViewController: KonumViewController {
     override func viewWillAppear(_ animated: Bool) {
         manager?.delegate = self
         manager?.startUpdatingLocation()
-        sonKosuBilgileriniGetir()
     }
     override func viewWillDisappear(_ animated: Bool) {
         manager?.stopUpdatingLocation()
@@ -46,32 +45,56 @@ class KosuyaBaslaViewController: KonumViewController {
         btnSonKosuKapat.isHidden = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        ayarlaMapView()
+    }
     
-    func sonKosuBilgileriniGetir() {
-        
-        
-        guard let sonKosu = Kosu.kosularinTumunuGetir()?.first else {
-            stackViewSonKosu.isHidden = true
-            viewSonKosu.isHidden = true
-            btnSonKosuKapat.isHidden = true
-            return
-        }
-        print("Son Koşu Getirildi")
-        stackViewSonKosu.isHidden = false
-        viewSonKosu.isHidden = false
-        btnSonKosuKapat.isHidden = false
-        
+    
+    func sonKosuMapEkle() -> MKPolyline? {
+        guard let sonKosu = Kosu.kosularinTumunuGetir()?.first else { return nil }
         lblMesafe.text = "Mesafe : \(String(format:"%.2f",sonKosu.mesafe/1000))"
         lblSure.text = "Süre : \(sonKosu.sure.saniyeSureCevir())"
         lblTempo.text = "Tempo : \(sonKosu.tempo.saniyeSureCevir())"
         
-        
+        var koordinatlar = [CLLocationCoordinate2D]()
+        for konum in sonKosu.konumlar {
+            koordinatlar.append(CLLocationCoordinate2D(latitude: konum.latitude, longitude: konum.longitude))
+        }
+        return MKPolyline(coordinates: koordinatlar, count: koordinatlar.count)
     }
     
+    func ayarlaMapView() {
+        
+        if let overlay = sonKosuMapEkle() {
+            if mapView.overlays.count > 0 {
+                mapView.removeOverlays(mapView.overlays)
+            }
+            
+            mapView.addOverlay(overlay)
+            stackViewSonKosu.isHidden = false
+            viewSonKosu.isHidden = false
+            btnSonKosuKapat.isHidden = false
+        } else {
+            stackViewSonKosu.isHidden = true
+            viewSonKosu.isHidden = true
+            btnSonKosuKapat.isHidden = true
+        }
+        
+    }
 }
 
 
 extension KosuyaBaslaViewController : CLLocationManagerDelegate {
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        
+        let polyline = overlay as! MKPolyline
+        let renderer = MKPolylineRenderer(polyline: polyline)
+        renderer.strokeColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        renderer.lineWidth = 6
+        return renderer
+    }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
